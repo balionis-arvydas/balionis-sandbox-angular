@@ -16,7 +16,24 @@
 
 <main class="main">
   <h1>Hello, {{ title }}</h1>
-  <p>Congratulations! Your app is running...</p>
+
+  <!--
+  <ul>
+    @for (message of messages; track $index; let idx = $index) {
+    <li>Item {{idx}} {{ message }}</li>
+    } @empty {
+    <li>There are no items.</li>
+    }
+  </ul>
+  -->
+  <ul>
+    @for (message of messages; track $index; let idx = $index) {
+      <app-list-message [index]="idx" [message]="message" (remove)="onRemove(idx)"></app-list-message>
+    } @empty {
+      <li>There are no items.</li>
+    }
+  </ul>
+
 </main>
 
 <router-outlet />
