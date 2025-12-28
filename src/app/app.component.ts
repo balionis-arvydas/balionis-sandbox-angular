@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {ListMessageComponent} from './components/list-message/list-message.component';
+import { ListMessageComponent } from './components/list-message/list-message.component';
+import { AddMessageComponent } from './components/add-message/add-message.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,ListMessageComponent],
+  imports: [RouterOutlet, ListMessageComponent, AddMessageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.less'
 })
@@ -17,7 +18,7 @@ export class AppComponent {
   constructor() {
     this.title = 'balionis-sandbox-angular';
     console.log('title=' + this.title);
-    this.messages = ["first","second","third"];
+    this.messages = [];
   }
 
   public onAdd(message: string) {

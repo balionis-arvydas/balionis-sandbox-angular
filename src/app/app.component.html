@@ -26,13 +26,16 @@
     }
   </ul>
   -->
-  <ul>
-    @for (message of messages; track $index; let idx = $index) {
+  <div>
+    <app-add-message (add)="onAdd($event)"></app-add-message>
+    <ul>
+      @for (message of messages; track $index; let idx = $index) {
       <app-list-message [index]="idx" [message]="message" (remove)="onRemove(idx)"></app-list-message>
-    } @empty {
+      } @empty {
       <li>There are no items.</li>
-    }
-  </ul>
+      }
+    </ul>
+  </div>
 
 </main>
 
